@@ -1,0 +1,215 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .create-forum {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .new-forum {
+    background-color: #4caf50;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .new-forum:hover {
+    background-color: #45a049;
+  }
+  
+  .thread-list {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 600px;
+  }
+
+.search-bar {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-bar input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+  }
+  
+  .search-bar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .search-bar button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 600px) {
+    .search-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .search-bar input[type="text"] {
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  
+    .search-bar button {
+      border-radius: 5px;
+    }
+  }
+  
+  .thread-list h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .thread-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .thread-list li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .thread-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .thread-list a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .thread-list p {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+  }
+  
+  /* New user-avatar styles */
+  .user-avatar-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white;
+  }
+  
+  .user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .user-name {
+    color: white;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .header {
+    background-color: #ddd; /* Latar belakang abu-abu */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  /* ... (gaya CSS lainnya) ... */
+  
+  .small-footer {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+  }
+  
+  .preloader.active {
+    opacity: 0;
+    pointer-events: none;
+  }
+  

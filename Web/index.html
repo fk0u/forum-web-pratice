@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Forum</title>
+  <style>
+    /* Preloader styles */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9); /* Dark background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+    
+    .preloader.active {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    /* Loader animation */
+    .loader {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 2s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <header>
+    <h1>Welcome to the Forum!</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </nav>
+    <a href="profile.html" class="user-avatar-container">
+      <div class="user-avatar">
+        <img src="https://cdn.icon-icons.com/icons2/2468/PNG/512/user_icon_149329.png" alt="User Avatar">
+      </div>
+      <div class="user-name">KOU</div>
+    </a>
+  </header>
+
+  <main>
+    <section class="create-forum">
+      <a href="create-forum.html" class="button new-forum">Create New Forum</a>
+    </section>
+  
+    <section class="thread-list">
+      <h2>Thread List</h2>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search threads...">
+        <button onclick="searchThreads()">Search</button>
+      </div>
+      <ul>
+        <li>
+          <a href="thread.html?title=Hello%20World">Hello World</a>
+          <p>Posted by Admin</p>
+        </li>
+        <li>
+          <a href="thread.html?title=Thread%20Title%202">Thread Title 2</a>
+          <p>Posted by Admin</p>
+        </li>
+        <!-- Add more thread items here -->
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    // JavaScript code for preloader
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("preloader").classList.add("active");
+    });
+    
+    // Mengambil data username dari local storage
+    var savedUsername = localStorage.getItem("username");
+    if (savedUsername) {
+      var userNameElement = document.querySelector(".user-name");
+      userNameElement.textContent = savedUsername;
+    }
+  </script>
+ 
+ <footer class="small-footer">
+    <p>&copy; 2023 My Forum. All rights reserved.</p>
+  </footer>
+</body>
+</html>

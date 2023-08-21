@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Forum Login</title>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login to Forum</h1>
+    <form action="#">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="regis.html">Register</a></p>
+  </div>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var username = document.getElementById('username').value;
+
+      // Simpan data ke Local Storage
+      localStorage.setItem('loggedInUsername', username);
+
+      // Tampilkan SweetAlert untuk konfirmasi login
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Successful',
+        text: 'You have successfully logged in!',
+        showConfirmButton: false,
+        timer: 2000
+      });
+
+      // Redirect ke index.html setelah 2 detik
+      setTimeout(function() {
+        window.location.href = 'index.html';
+      }, 2000);
+    });
+  </script>
+
+  <footer class="small-footer">
+    <p>&copy; 2023 My Forum. All rights reserved.</p>
+  </footer>
+</body>
+</html>

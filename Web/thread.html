@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="thread.css">
+  <title>Thread Title</title>
+</head>
+<body>
+  <header>
+    <h1>My Forum</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="thread-content">
+        <?php
+        if (isset($_GET["title"])) {
+            $threadTitle = $_GET["title"];
+            echo "<h2>$threadTitle</h2>";
+        } else {
+            echo "<h2>No thread title specified.</h2>";
+        }
+        ?>
+      <p>Posted by Admin</p>
+      <p>This is the content of the thread. Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        My Name is Al-Ghani Desta Setyawan. Im a Student 16 years old
+      </p>
+    </section>
+  </main>
+</body>
+</html>

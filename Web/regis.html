@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <title>Register</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <style>
+    /* ... CSS styles ... */
+  </style>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var username = document.getElementById('username').value;
+      var email = document.getElementById('email').value;
+
+      // Simpan data ke Local Storage
+      localStorage.setItem('registeredUsername', username);
+      localStorage.setItem('registeredEmail', email);
+
+    function showSuccessAlert() {
+      Swal.fire({
+        icon: 'success',
+        title: 'Registration Successful',
+        text: 'Your account has been successfully created!',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        // Redirect to index.html after 2 seconds
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 2000);
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Create an Account</h1>
+    <form action="#" method="post" onsubmit="showSuccessAlert(); return false;">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+      
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Log in</a></p>
+  </div>
+  <footer class="small-footer">
+    <p>&copy; 2023 My Forum. All rights reserved.</p>
+  </footer>
+</body>
+</html>

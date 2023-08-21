@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="profile.css">
+  <title>Profile</title>
+  <!-- Include SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.css">
+</head>
+<body>
+  <header>
+    <h1>My Profile</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="profile">
+      <div class="profile-details">
+        <h2>Edit Profile</h2>
+        <form action="update-profile.html" method="post">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <!-- Add SweetAlert2 confirmation dialog on button click -->
+          <button type="button" onclick="showSaveConfirmation()">Save</button>
+        </form>
+      </div>
+      <div class="profile-image">
+        <h2>Edit Profile Picture</h2>
+        <form action="update-picture.html" method="post" enctype="multipart/form-data">
+          <input type="file" id="profile-picture" name="profile-picture" accept="image/*" required>
+          <button type="button" onclick="updateProfilePicture(); showNotification();">Upload</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="notification" id="notification">
+      Profile updated successfully!
+    </div>
+
+    <section class="profile-info">
+      <h2>Profile Information</h2>
+      <div class="user-avatar-container">
+        <div class="user-avatar">
+          <img src="https://cdn.icon-icons.com/icons2/2468/PNG/512/user_icon_149329.png" alt="User Avatar">
+        </div>
+        <div class="user-info">
+          <p><strong>Username:</strong> <span id="profile-username">KOU</span></p>
+          <p><strong>Email:</strong> <span id="profile-email">kou@example.com</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Include SweetAlert2 library -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.min.js"></script>
+  
+  <script>
+    function showNotification() {
+      var notification = document.getElementById("notification");
+      notification.style.display = "block";
+      setTimeout(function() {
+        notification.style.display = "none";
+      }, 3000); // Hide after 3 seconds
+    }
+
+    function showSaveConfirmation() {
+      Swal.fire({
+        title: 'Save Changes',
+        text: 'Are you sure you want to save the changes?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, save it!',
+        cancelButtonText: 'Cancel',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Call the updateProfile function and show success alert
+          updateProfile();
+          Swal.fire('Saved!', 'Your changes have been saved.', 'success');
+        }
+      });
+    }
+
+    function updateProfile() {
+      var newUsername = document.getElementById("username").value;
+      var newEmail = document.getElementById("email").value;
+      // Update username and email
+      document.getElementById("profile-username").textContent = newUsername;
+      document.getElementById("profile-email").textContent = newEmail;
+      // Simpan data di local storage
+      localStorage.setItem("username", newUsername);
+    }
+
+    function updateProfilePicture() {
+      // ... (existing updateProfilePicture function) ...
+    }
+  </script>
+</body>
+</html>

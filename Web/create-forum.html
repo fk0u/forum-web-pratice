@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Create New Forum</title>
+</head>
+<body>
+  <header>
+    <h1>Create New Forum</h1>
+  </header>
+
+  <main>
+    <section class="create-forum">
+      <form action="process-new-forum.php" method="post">
+        <label for="forum-title">Forum Title:</label>
+        <input type="text" id="forum-title" name="forum-title" required>
+        
+        <label for="forum-description">Description:</label>
+        <textarea id="forum-description" name="forum-description" required></textarea>
+        
+        <button type="submit">Create Forum</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
